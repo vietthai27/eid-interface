@@ -3,10 +3,10 @@ import { createSlice } from '@reduxjs/toolkit'
 export const userSlice = createSlice({
   name: 'userData',
   initialState: {
-    username: '',
-    password: '',
+    username: 'supper_admin',
+    password: 'abcD1234',
     authToken: '',
-    hostbase: '',
+    hostbase: 'http://localhost:8080/ekycapi',
     base64Front: '',
     base64Back: '',
     linkOcr: '',

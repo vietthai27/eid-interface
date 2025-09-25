@@ -91,21 +91,6 @@ function AppBarComponent() {
 
   const navigate = useNavigate()
 
-  const SearchHostbase = React.memo(({ hostbase, onChange }) => (
-    <Search>
-      <SearchIconWrapper>
-        <LocationOnIcon />
-      </SearchIconWrapper>
-      <StyledInputBase
-        value={userData.hostbase || ""}
-        onChange={(e) => dispatch(changeHostbase(e.target.value))}
-        placeholder="Hostbase"
-        inputProps={{ 'aria-label': 'search' }}
-      />
-    </Search>
-  ));
-
-
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
@@ -176,10 +161,17 @@ function AppBarComponent() {
             ))}
           </Box>
           <Box sx={{ flexGrow: 2, display: { xs: 'none', md: 'flex' } }}>
-            <SearchHostbase
-              hostbase={userData.hostbase}
-              onChange={(e) => dispatch(changeHostbase(e.target.value))}
-            />
+            <Search>
+              <SearchIconWrapper>
+                <LocationOnIcon />
+              </SearchIconWrapper>
+              <StyledInputBase
+                value={userData.hostbase || ""}
+                onChange={(e) => dispatch(changeHostbase(e.target.value))}
+                placeholder="Hostbase"
+                inputProps={{ 'aria-label': 'search' }}
+              />
+            </Search>
           </Box>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">

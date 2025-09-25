@@ -66,11 +66,12 @@ function UserComponent() {
                 noValidate
                 autoComplete="off"
             >
-                <TextField id="outlined-basic" label="Username" variant="outlined" onChange={(e) => dispatch(changeUsername(e.target.value))} />
+                <TextField value={userData.username || ""} id="outlined-basic" label="Username" variant="outlined" onChange={(e) => dispatch(changeUsername(e.target.value))} />
 
                 <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
                     <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
                     <OutlinedInput
+                        value={userData.password || ""}
                         onChange={(e) => dispatch(changePassword(e.target.value))}
                         id="outlined-adornment-password"
                         type={userData.showPassword ? 'text' : 'password'}
