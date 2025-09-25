@@ -1,3 +1,10 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
 .App {
   text-align: center;
 }
@@ -32,7 +39,109 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.result-header-container {
+  font-size: 30px;
+  display: flex;
+  gap: 20px;
+  border-radius: 10px;
+  box-shadow: 2px 4px 11px 0px gray;
+  padding: 15px;
+  font-weight: bold;
+  color: white;
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 50px;
+  aspect-ratio: 1;
+  display: grid;
+  border: 4px solid #0000;
+  border-radius: 50%;
+  border-right-color: #25b09b;
+  animation: l15 1s infinite linear;
+}
+
+.loader::before,
+.loader::after {
+  content: "";
+  grid-area: 1/1;
+  margin: 2px;
+  border: inherit;
+  border-radius: 50%;
+  animation: l15 2s infinite;
+}
+
+.loader::after {
+  margin: 8px;
+  animation-duration: 3s;
+}
+
+@keyframes l15 {
+  100% {
+    transform: rotate(1turn)
+  }
+}
+
+
+/* Loader wrapper for fullscreen effect */
+.loader-page-overlay {
+  position: fixed;
+  inset: 0;
+  /* same as top:0, right:0, bottom:0, left:0 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.5);
+  /* semi-transparent overlay */
+  backdrop-filter: blur(5px);
+  /* blur background */
+  z-index: 9999;
+  /* stay above everything */
+}
+
+/* Your spinner */
+.loader-page {
+  width: 50px;
+  aspect-ratio: 1;
+  display: grid;
+  border: 4px solid #0000;
+  border-radius: 50%;
+  border-right-color: #25b09b;
+  animation: l15 1s infinite linear;
+}
+
+.loader-page::before,
+.loader-page::after {
+  content: "";
+  grid-area: 1/1;
+  margin: 2px;
+  border: inherit;
+  border-radius: 50%;
+  animation: l15 2s infinite;
+}
+
+.loader-page::after {
+  margin: 8px;
+  animation-duration: 3s;
+}
+
+.body-container {
+  display: flex;
+  justify-content: space-around;
+  /* border: 1px solid black; */
+  padding: 20px 0;
+}
+
+.body-left {
+  padding: 0 20px;
+}
+
+.body-right {
+  /* border: 1px solid black; */
 }
